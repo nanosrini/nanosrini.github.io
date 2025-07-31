@@ -1,0 +1,30 @@
+body {
+  background: #0f0f0f;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: #e23636;
+}
+
+a:hover {
+  color: #f5c518;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.site-header {
+  background: linear-gradient(to right, #1f1f1f, #2c2c2c);
+  border-bottom: 2px solid #e23636;
+}
+
+.site-title {
+  color: #e23636;
+  font-size: 32px;
+  font-weight: bold;
+}

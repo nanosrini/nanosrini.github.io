@@ -6,7 +6,7 @@ excerpt: "Research Scholar | Nanotechnology | Biomarker | Machine Learning in Bi
 
 <img src="/images/profile.png" alt="profile photo" style="width: 160px; border-radius: 50%; margin-bottom: 20px;" />
 
-# Hello, I'm Srinivasa 👋
+# Hello, Welcome to Srini's Nanoverse�
 
 I’m a research scholar working at the intersection of **molecular microbiology**, **Biomarker**, and **machine learning for diagnostics**.  
 My work focuses on developing aptamer-based biosensors and rapid diagnostic tools to address the growing threat of **antimicrobial resistance (AMR)**, particularly targeting **ESKAPE pathogens**.

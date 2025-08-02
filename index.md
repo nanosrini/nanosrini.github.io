@@ -4,21 +4,19 @@ title: "Welcome"
 excerpt: "Research Scholar | Nanotechnology | Biomarker | Machine Learning in Biology"
 ---
 
-<img src="/images/profile.png" alt="profile photo" style="width: 160px; border-radius: 50%; margin-bottom: 20px;" />
-
 # Hello, Welcome to Srini's Nanoverse�
 
 I’m a research scholar working at the intersection of **molecular microbiology**, **Biomarker**, and **machine learning for diagnostics**.  
-My work focuses on developing aptamer-based biosensors and rapid diagnostic tools to address the growing threat of **antimicrobial resistance (AMR)**, particularly targeting **ESKAPE pathogens**.
+My current focuses is identifying biomarkers on postneurosrugrical meningitis. I am also working POCT based on CMOS.
 
 ---
 
 ### 🔬 **Research Interests**
-- DNA Origami and DNA-based diagnostics
-- Aptamer selection and engineering
+- Nanotechnology and DNA Origami
+- Biomarker & Biofilm
 - Lateral flow assays and point-of-care diagnostics
-- Antimicrobial stewardship and rapid pathogen detection
-- Explainable AI (XAI) in bioinformatics and healthcare
+- Cancer Biology
+- Bioinfomatics & Machine Learning
 
 ---
 
@@ -26,7 +24,6 @@ My work focuses on developing aptamer-based biosensors and rapid diagnostic tool
 - 📑 [Curriculum Vitae (CV)](/files/cv.pdf)
 - 📊 [My Research Projects](/research/)
 - 📚 [Publications & Preprints](/publications/)
-- 🧪 [Lab Notebook Blog](/year-archive/)
 
 ---
 

@@ -26,11 +26,6 @@
       text-align: center;
     }
 
-    #logo {
-      width: 150px;
-      margin-bottom: 20px;
-    }
-
     h1 {
       font-size: 60px;
       letter-spacing: 4px;
@@ -55,28 +50,34 @@
       background: #f5c518;
       color: black;
     }
-    
-    @keyframes portalExpand {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(5);
-    opacity: 1;
-  }
-}
 
     .portal {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 400px;
-      height: 225px;
       transform: translate(-50%, -50%);
       display: none;
       z-index: 100;
+    }
+
+    .portal img {
+      width: 400px;
+      height: auto;
+    }
+
+    .expand {
       animation: portalExpand 2.5s ease-in-out forwards;
+    }
+
+    @keyframes portalExpand {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(10);
+        opacity: 1;
+      }
     }
 
     .fade-out {
@@ -93,7 +94,7 @@
 </head>
 <body>
   <div class="portal" id="portal">
-    <img src="/images/portal.gif" alt="Portal Animation" style="width: 100%; height: 100%;">
+    <img id="portalImg" src="/images/portal.gif" alt="Portal Animation">
   </div>
 
   <div class="center-screen" id="mainContent">
@@ -104,12 +105,15 @@
   <script>
     function openPortal() {
       const portal = document.getElementById("portal");
-portal.style.display = "block";
-portal.style.animation = "portalExpand 2.5s ease-in-out forwards";
+      const portalImg = document.getElementById("portalImg");
+      portal.style.display = "block";
+      portalImg.classList.add("expand");
 
-      setTimeout(function() {
+      document.getElementById("mainContent").classList.add("fade-out");
+
+      setTimeout(function () {
         window.location.href = "/home/";
-      }, 2700); // Delay 4 seconds
+      }, 2700);
     }
   </script>
 </body>

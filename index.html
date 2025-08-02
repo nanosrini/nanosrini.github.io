@@ -55,6 +55,17 @@
       background: #f5c518;
       color: black;
     }
+    
+    @keyframes portalExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 1;
+  }
+}
 
     .portal {
       position: absolute;
@@ -65,6 +76,7 @@
       transform: translate(-50%, -50%);
       display: none;
       z-index: 100;
+      animation: portalExpand 2.5s ease-in-out forwards;
     }
 
     .fade-out {
@@ -91,12 +103,13 @@
 
   <script>
     function openPortal() {
-      document.getElementById("portal").style.display = "block";
-      document.getElementById("mainContent").classList.add("fade-out");
+      const portal = document.getElementById("portal");
+portal.style.display = "block";
+portal.style.animation = "portalExpand 2.5s ease-in-out forwards";
 
       setTimeout(function() {
         window.location.href = "/home/";
-      }, 2500); // Delay 4 seconds
+      }, 2700); // Delay 4 seconds
     }
   </script>
 </body>

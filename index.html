@@ -56,7 +56,7 @@
       color: black;
     }
 
-    .portal1 {
+    .portal {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -80,18 +80,18 @@
   </style>
 </head>
 <body>
-  <div class="portal1" id="portal1">
+  <div class="portal" id="portal">
     <img src="/images/portal.gif" alt="Portal1 Animation" style="width: 100%; height: 100%;">
   </div>
 
   <div class="center-screen" id="mainContent">
     <h1>Srini's Nanoverse</h1>
-    <button class="enter-btn" onclick="openPortal1()">Enter Portal1</button>
+    <button class="enter-btn" onclick="openPortal()">Enter Portal</button>
   </div>
 
   <script>
-    function openPortal1() {
-      document.getElementById("portal1").style.display = "block";
+    function openPortal() {
+      document.getElementById("portal").style.display = "block";
       document.getElementById("mainContent").classList.add("fade-out");
 
       setTimeout(function() {

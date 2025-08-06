@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Srini's Nanoverse</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
@@ -19,11 +19,11 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0,0,0,0.85);
       padding: 15px 0;
       text-align: center;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(255, 0, 0, 0.2);
+      box-shadow: 0 2px 10px rgba(255,0,0,0.12);
     }
     .navbar a {
       margin: 0 20px;
@@ -69,12 +69,9 @@
       border-radius: 5px;
       text-decoration: none;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.18s;
     }
-    .enter-btn:hover {
-      background: #f5c518;
-      color: black;
-    }
+    .enter-btn:hover { background: #f5c518; color: black; }
 
     /* Wrap transition */
     #pageWrap {
@@ -89,7 +86,7 @@
       z-index: 9999;
     }
     .wrap-shrinking {
-      animation: wrapToPoint 1.1s cubic-bezier(.22,.9,.3,1) forwards;
+      animation: wrapToPoint 1.0s cubic-bezier(.22,.9,.3,1) forwards;
     }
     @keyframes wrapToPoint {
       0% {
@@ -109,16 +106,19 @@
       }
     }
     .page-fade {
-      transition: opacity 300ms ease-in;
+      transition: opacity 240ms ease-in;
       opacity: 0;
     }
+
+    /* Accessibility: focus outline for buttons */
+    .enter-btn:focus { outline: 2px solid #fcbf49; outline-offset: 2px; }
   </style>
 </head>
 <body>
-  <!-- overlay for animation -->
-  <div id="wrapOverlay" class="wrap-overlay"></div>
+  <!-- overlay (kept separate) -->
+  <div id="wrapOverlay" class="wrap-overlay" aria-hidden="true"></div>
 
-  <!-- wrap all visible content -->
+  <!-- wrap all visible page content -->
   <div id="pageWrap">
     <div class="navbar">
       <a href="#about">About</a>
@@ -133,40 +133,43 @@
 
     <section id="about">
       <h1>About</h1>
-      <p>A researcher whose interest lies in microbiology and nanotechnology, integrating them with machine learning.</p>
+      <p>A researcher whose interests lie in microbiology and nanotechnology, integrating them with machine learning.</p>
     </section>
 
     <section id="research">
       <h1>Research</h1>
-      <p>A short overview of your core research areas or lab work. You can expand this later.</p>
+      <p>A short overview of core research areas or lab work. You can expand this later.</p>
     </section>
 
     <section id="publications">
       <h1>Publications</h1>
       <p>One of my favourite papers, which was my first work on nanoparticles.</p>
-      <button class="enter-btn" onclick="wrapThenGo(event, '/publications.html')">Enter</button>
+      <!-- IMPORTANT: use a relative path if publications.html is in the same folder as this page -->
+      <button class="enter-btn" onclick="wrapThenGo(event, 'publications.html')">Enter</button>
     </section>
 
     <section id="current">
       <h1>Current Work</h1>
-      <p>Currently working on postsurgical meningitis, identifying potential biomarkers for rapid infection detection using ELISA and NGS.</p>
+      <p>Currently working on postsurgical meningitis — identifying biomarkers for rapid detection using ELISA and NGS.</p>
     </section>
 
     <section id="hobbies">
       <h1>Hobbies</h1>
       <p>Exploring other multiverses.</p>
-      <button class="enter-btn" onclick="wrapThenGo(event, '/hobbies.html')">Enter</button>
+      <button class="enter-btn" onclick="wrapThenGo(event, 'hobbies.html')">Enter</button>
     </section>
 
     <section id="contact">
       <h1>Contact</h1>
       <p>Email, LinkedIn, GitHub, or ORCID links. I can help style these with icons later.</p>
     </section>
-  </div>
+  </div><!-- end pageWrap -->
 
   <script>
+  // wrapThenGo: animate shrink-to-click-point and navigate after animation
   function wrapThenGo(event, url, options = {}) {
-    event.preventDefault();
+    // prevent default immediate navigation
+    if (event && event.preventDefault) event.preventDefault();
 
     const pageWrap = document.getElementById('pageWrap');
     const overlay = document.getElementById('wrapOverlay');
@@ -175,31 +178,69 @@
       return;
     }
 
-    const duration = options.durationMs || 1100;
+    const duration = options.durationMs || 1000; // ms
 
-    // Get click position from button
-    const rect = event.target.getBoundingClientRect();
-    const cx = `${rect.left + rect.width / 2}px`;
-    const cy = `${rect.top + rect.height / 2}px`;
+    // compute click center from element (works with button or link)
+    // if event.target is inner element (e.g., span), find nearest button/link
+    let el = event && event.target ? event.target : null;
+    while (el && !el.getBoundingClientRect) el = el.parentElement;
+    const rect = el ? el.getBoundingClientRect() : null;
+    const cx = rect ? `${rect.left + rect.width / 2}px` : `${window.innerWidth/2}px`;
+    const cy = rect ? `${rect.top + rect.height / 2}px` : `${window.innerHeight/2}px`;
 
+    // set CSS variables used by keyframes
     overlay.style.setProperty('--cx', cx);
     overlay.style.setProperty('--cy', cy);
     pageWrap.style.setProperty('--cx', cx);
     pageWrap.style.setProperty('--cy', cy);
 
+    // disable scrolling to avoid artifacts
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
 
-    pageWrap.classList.add('wrap-shrinking');
+    // trigger animation
+    pageWrap.classList.add('wrap-shrinking', 'page-fade');
     overlay.classList.add('wrap-shrinking');
-    pageWrap.classList.add('page-fade');
 
+    // navigate after animation completes + small buffer
     setTimeout(() => {
+      // restore overflow (navigation will load new page)
       document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       window.location.href = url;
-    }, duration + 50);
+    }, duration + 60);
   }
+
+  // On page load, remove any animation classes so returning to this page shows content immediately
+  document.addEventListener('DOMContentLoaded', () => {
+    const pageWrap = document.getElementById('pageWrap');
+    const overlay = document.getElementById('wrapOverlay');
+    if (pageWrap) {
+      pageWrap.classList.remove('wrap-shrinking', 'page-fade');
+      // ensure CSS variables have defaults
+      pageWrap.style.setProperty('--cx', `${window.innerWidth/2}px`);
+      pageWrap.style.setProperty('--cy', `${window.innerHeight/2}px`);
+    }
+    if (overlay) {
+      overlay.classList.remove('wrap-shrinking');
+      overlay.style.setProperty('--cx', `${window.innerWidth/2}px`);
+      overlay.style.setProperty('--cy', `${window.innerHeight/2}px`);
+    }
+
+    // Also remove leftover inline overflow if present
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  });
+
+  // Safety: if user navigates back via browser (popstate), ensure animation classes are cleared
+  window.addEventListener('pageshow', function (evt) {
+    const pageWrap = document.getElementById('pageWrap');
+    const overlay = document.getElementById('wrapOverlay');
+    if (pageWrap) pageWrap.classList.remove('wrap-shrinking', 'page-fade');
+    if (overlay) overlay.classList.remove('wrap-shrinking');
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  });
   </script>
 </body>
 </html>

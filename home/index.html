@@ -150,10 +150,10 @@
   </section>
 
   <section id="publications">
-    <h1>Publications</h1>
-    <p>One of my favourite papers, which is my first work on nanoparticles.</p>
-    <a href="publications.html" class="enter-btn">Enter</a>
-  </section>
+  <h1>Publications</h1>
+  <p>One of favourite paper, which is my first work on nanoparticles</p>
+  <button class="enter-btn" onclick="wrapThenGo(event, '/publications.html')">Enter</button>
+</section>
 
   <section id="current">
     <h1>Current Work</h1>
@@ -162,10 +162,10 @@
   </section>
 
   <section id="hobbies">
-    <h1>Hobbies</h1>
-    <p>Let's see the other multiverse.</p>
-    <a href="hobbies.html" class="enter-btn">Enter</a>
-  </section>
+  <h1>Hobbies</h1>
+  <p>Lets see the other multiverse</p>
+  <button class="enter-btn" onclick="wrapThenGo(event, '/hobbies.html')">Enter</button>
+</section>
 
   <section id="contact">
     <h1>Contact</h1>
@@ -173,38 +173,42 @@
   </section>
 </div>
 
-  <script>
-    function wrapThenGo(url, event, options = {}) {
-      const pageWrap = document.getElementById('pageWrap');
-      const overlay = document.getElementById('wrapOverlay');
-      if (!pageWrap || !overlay) {
-        window.location.href = url;
-        return;
-      }
-      const duration = options.durationMs || 850;
-      let cx, cy;
-      if (event && typeof event.clientX === 'number') {
-        cx = `${event.clientX}px`;
-        cy = `${event.clientY}px`;
-      } else {
-        cx = `${window.innerWidth / 2}px`;
-        cy = `${window.innerHeight / 2}px`;
-      }
-      overlay.style.setProperty('--cx', cx);
-      overlay.style.setProperty('--cy', cy);
-      pageWrap.style.setProperty('--cx', cx);
-      pageWrap.style.setProperty('--cy', cy);
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-      pageWrap.classList.add('wrap-shrinking');
-      overlay.classList.add('wrap-shrinking');
-      pageWrap.classList.add('page-fade');
-      setTimeout(() => {
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        window.location.href = url;
-      }, duration + 50);
-    }
-  </script>
+ <script>
+function wrapThenGo(event, url, options = {}) {
+  // stop the default link/button action
+  event.preventDefault();
+
+  const pageWrap = document.getElementById('pageWrap');
+  const overlay = document.getElementById('wrapOverlay');
+  if (!pageWrap || !overlay) {
+    window.location.href = url;
+    return;
+  }
+
+  const duration = options.durationMs || 850;
+
+  // Always center animation (change this if you want click-based)
+  const cx = `${window.innerWidth / 2}px`;
+  const cy = `${window.innerHeight / 2}px`;
+
+  overlay.style.setProperty('--cx', cx);
+  overlay.style.setProperty('--cy', cy);
+  pageWrap.style.setProperty('--cx', cx);
+  pageWrap.style.setProperty('--cy', cy);
+
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
+
+  pageWrap.classList.add('wrap-shrinking');
+  overlay.classList.add('wrap-shrinking');
+  pageWrap.classList.add('page-fade');
+
+  setTimeout(() => {
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    window.location.href = url;
+  }, duration + 50);
+}
+</script>
 </body>
 </html>

@@ -64,32 +64,69 @@
       line-height: 1.6;
     }
 
-    /* Spacer for navbar */
-    .spacer {
-      height: 70px;
+    .spacer { height: 70px; }
+    /* Buttons */
+    .enter-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background: #e23636;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .enter-btn {
-  display: inline-block;
-  margin-top: 15px;
-  background: #e23636; /* Avengers Red */
-  color: white;
-  padding: 8px 15px;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
 .enter-btn:hover {
-  background: #fcbf49; /* Marvel Yellow */
-  color: black;
-}
+      background: #f5c518;
+      color: black;
+    }
+    /* Wrap transition animation */
+    .page-wrap {
+      position: relative;
+      transform-origin: center center;
+      will-change: transform, clip-path, opacity;
+    }
+    .wrap-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    .wrap-shrinking {
+      animation: wrapToPoint 850ms cubic-bezier(.22,.9,.3,1) forwards;
+    }
+    @keyframes wrapToPoint {
+      0% {
+        transform: scale(1);
+        clip-path: circle(150% at var(--cx) var(--cy));
+        opacity: 1;
+      }
+      70% {
+        transform: scale(0.22);
+        clip-path: circle(2.5% at var(--cx) var(--cy));
+        opacity: 0.98;
+      }
+      100% {
+        transform: scale(0.02);
+        clip-path: circle(0.2% at var(--cx) var(--cy));
+        opacity: 0;
+      }
+    }
+    .page-fade {
+      transition: opacity 300ms ease-in;
+      opacity: 0;
+    }
   </style>
 </head>
 <body>
+<!-- overlay for animation -->
+  <div id="wrapOverlay" class="wrap-overlay"></div>
 
+  <!-- wrap ALL visible page content -->
   <div class="navbar">
     <a href="#about">About</a>
     <a href="#research">Research</a>
@@ -134,6 +171,40 @@
     <h1>Contact</h1>
     <p>Email, LinkedIn, GitHub, or ORCID links. I can help style these with icons later.</p>
   </section>
+</div>
 
+  <script>
+    function wrapThenGo(url, event, options = {}) {
+      const pageWrap = document.getElementById('pageWrap');
+      const overlay = document.getElementById('wrapOverlay');
+      if (!pageWrap || !overlay) {
+        window.location.href = url;
+        return;
+      }
+      const duration = options.durationMs || 850;
+      let cx, cy;
+      if (event && typeof event.clientX === 'number') {
+        cx = `${event.clientX}px`;
+        cy = `${event.clientY}px`;
+      } else {
+        cx = `${window.innerWidth / 2}px`;
+        cy = `${window.innerHeight / 2}px`;
+      }
+      overlay.style.setProperty('--cx', cx);
+      overlay.style.setProperty('--cy', cy);
+      pageWrap.style.setProperty('--cx', cx);
+      pageWrap.style.setProperty('--cy', cy);
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      pageWrap.classList.add('wrap-shrinking');
+      overlay.classList.add('wrap-shrinking');
+      pageWrap.classList.add('page-fade');
+      setTimeout(() => {
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        window.location.href = url;
+      }, duration + 50);
+    }
+  </script>
 </body>
 </html>

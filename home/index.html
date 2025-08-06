@@ -72,8 +72,9 @@
       transition: 0.18s;
     }
     .enter-btn:hover { background: #f5c518; color: black; }
+    .enter-btn:focus { outline: 2px solid #fcbf49; outline-offset: 2px; }
 
-    /* Wrap transition */
+    /* Page Wrap & Transition */
     #pageWrap {
       position: relative;
       transform-origin: center center;
@@ -85,6 +86,27 @@
       pointer-events: none;
       z-index: 9999;
     }
+
+    /* Flash effect */
+    .flash-effect {
+      position: fixed;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(0,153,255,0.6) 60%, rgba(0,0,0,0) 100%);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+      z-index: 10000;
+      animation: flashBurst 0.15s ease-out forwards;
+    }
+    @keyframes flashBurst {
+      0%   { opacity: 0.8; transform: translate(-50%, -50%) scale(0.5); }
+      50%  { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+    }
+
+    /* Shrink animation */
     .wrap-shrinking {
       animation: wrapToPoint 1.0s cubic-bezier(.22,.9,.3,1) forwards;
     }
@@ -109,16 +131,10 @@
       transition: opacity 240ms ease-in;
       opacity: 0;
     }
-
-    /* Accessibility: focus outline for buttons */
-    .enter-btn:focus { outline: 2px solid #fcbf49; outline-offset: 2px; }
   </style>
 </head>
 <body>
-  <!-- overlay (kept separate) -->
   <div id="wrapOverlay" class="wrap-overlay" aria-hidden="true"></div>
-
-  <!-- wrap all visible page content -->
   <div id="pageWrap">
     <div class="navbar">
       <a href="#about">About</a>
@@ -144,7 +160,6 @@
     <section id="publications">
       <h1>Publications</h1>
       <p>One of my favourite papers, which was my first work on nanoparticles.</p>
-      <!-- IMPORTANT: use a relative path if publications.html is in the same folder as this page -->
       <button class="enter-btn" onclick="wrapThenGo(event, 'publications.html')">Enter</button>
     </section>
 
@@ -163,61 +178,57 @@
       <h1>Contact</h1>
       <p>Email, LinkedIn, GitHub, or ORCID links. I can help style these with icons later.</p>
     </section>
-  </div><!-- end pageWrap -->
+  </div>
 
   <script>
-  // wrapThenGo: animate shrink-to-click-point and navigate after animation
   function wrapThenGo(event, url, options = {}) {
-    // prevent default immediate navigation
     if (event && event.preventDefault) event.preventDefault();
 
     const pageWrap = document.getElementById('pageWrap');
     const overlay = document.getElementById('wrapOverlay');
-    if (!pageWrap || !overlay) {
-      window.location.href = url;
-      return;
-    }
+    if (!pageWrap || !overlay) { window.location.href = url; return; }
 
-    const duration = options.durationMs || 1000; // ms
-
-    // compute click center from element (works with button or link)
-    // if event.target is inner element (e.g., span), find nearest button/link
+    const duration = options.durationMs || 1000;
     let el = event && event.target ? event.target : null;
     while (el && !el.getBoundingClientRect) el = el.parentElement;
     const rect = el ? el.getBoundingClientRect() : null;
     const cx = rect ? `${rect.left + rect.width / 2}px` : `${window.innerWidth/2}px`;
     const cy = rect ? `${rect.top + rect.height / 2}px` : `${window.innerHeight/2}px`;
 
-    // set CSS variables used by keyframes
     overlay.style.setProperty('--cx', cx);
     overlay.style.setProperty('--cy', cy);
     pageWrap.style.setProperty('--cx', cx);
     pageWrap.style.setProperty('--cy', cy);
 
-    // disable scrolling to avoid artifacts
+    // Flash effect at click point
+    const flash = document.createElement('div');
+    flash.className = 'flash-effect';
+    flash.style.left = cx;
+    flash.style.top = cy;
+    document.body.appendChild(flash);
+    setTimeout(() => { flash.remove(); }, 200);
+
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
 
-    // trigger animation
-    pageWrap.classList.add('wrap-shrinking', 'page-fade');
-    overlay.classList.add('wrap-shrinking');
-
-    // navigate after animation completes + small buffer
+    // Delay shrink slightly to allow flash to appear first
     setTimeout(() => {
-      // restore overflow (navigation will load new page)
+      pageWrap.classList.add('wrap-shrinking', 'page-fade');
+      overlay.classList.add('wrap-shrinking');
+    }, 150);
+
+    setTimeout(() => {
       document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       window.location.href = url;
-    }, duration + 60);
+    }, duration + 200);
   }
 
-  // On page load, remove any animation classes so returning to this page shows content immediately
   document.addEventListener('DOMContentLoaded', () => {
     const pageWrap = document.getElementById('pageWrap');
     const overlay = document.getElementById('wrapOverlay');
     if (pageWrap) {
       pageWrap.classList.remove('wrap-shrinking', 'page-fade');
-      // ensure CSS variables have defaults
       pageWrap.style.setProperty('--cx', `${window.innerWidth/2}px`);
       pageWrap.style.setProperty('--cy', `${window.innerHeight/2}px`);
     }
@@ -226,14 +237,11 @@
       overlay.style.setProperty('--cx', `${window.innerWidth/2}px`);
       overlay.style.setProperty('--cy', `${window.innerHeight/2}px`);
     }
-
-    // Also remove leftover inline overflow if present
     document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
   });
 
-  // Safety: if user navigates back via browser (popstate), ensure animation classes are cleared
-  window.addEventListener('pageshow', function (evt) {
+  window.addEventListener('pageshow', function () {
     const pageWrap = document.getElementById('pageWrap');
     const overlay = document.getElementById('wrapOverlay');
     if (pageWrap) pageWrap.classList.remove('wrap-shrinking', 'page-fade');

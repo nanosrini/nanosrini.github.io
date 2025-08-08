@@ -170,15 +170,81 @@
 
     <section id="hobbies">
       <h1>Hobbies</h1>
-      <p>Exploring other multiverses.</p>
+      <p>Let's Explore Multiverse.</p>
       <button class="enter-btn" onclick="wrapThenGo(event, 'hobbies.html')">Enter</button>
     </section>
 
     <section id="contact">
-      <h1>Contact</h1>
-      <p>Email, LinkedIn, GitHub, or ORCID links. I can help style these with icons later.</p>
-    </section>
+  <h1>Contact</h1>
+  <div class="contact-container">
+    <a href="mailto:yourname@gmail.com" class="contact-item gmail">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
+      <span>yourname@gmail.com</span>
+    </a>
+    <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="contact-item orcid">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/orcid.svg" alt="ORCID">
+      <span>ORCID</span>
+    </a>
+    <a href="https://www.researchgate.net/profile/Your-Name" target="_blank" class="contact-item researchgate">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/researchgate.svg" alt="ResearchGate">
+      <span>ResearchGate</span>
+    </a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="contact-item linkedin">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+      <span>LinkedIn</span>
+    </a>
   </div>
+</section>
+
+<style>
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.contact-item {
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.contact-item img {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 0 transparent);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.contact-item span {
+  display: block;
+  margin-top: 8px;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Marvel-style glow colors */
+.gmail:hover img {
+  filter: drop-shadow(0 0 6px #ff4b4b) drop-shadow(0 0 12px #ff0000);
+}
+
+.orcid:hover img {
+  filter: drop-shadow(0 0 6px #8cd53d) drop-shadow(0 0 12px #00ff6a);
+}
+
+.researchgate:hover img {
+  filter: drop-shadow(0 0 6px #00ccbb) drop-shadow(0 0 12px #00fff6);
+}
+
+.linkedin:hover img {
+  filter: drop-shadow(0 0 6px #0077b5) drop-shadow(0 0 12px #00c8ff);
+}
+</style>
 
   <script>
   function wrapThenGo(event, url, options = {}) {

@@ -174,85 +174,55 @@
       <button class="enter-btn" onclick="wrapThenGo(event, 'hobbies.html')">Enter</button>
     </section>
 
-    <section id="contact" class="contact-banner">
+    <section id="contact" style="background: #111; padding: 100px 20px; text-align: center;">
   <h1>Contact</h1>
-  <div class="contact-container">
-    <a href="mailto:yourname@gmail.com" class="contact-item gmail">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
-      <span>srinivasa24r@gmail.com</span>
+  <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 40px;">
+
+    <!-- Gmail -->
+    <a href="mailto:yourname@gmail.com" class="contact-item" style="text-decoration:none; color:white; text-align:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="60" height="60" style="transition: filter 0.3s ease;">
+        <path fill="#EA4335" d="M64 128l192 144L448 128v256H64z"/>
+        <path fill="#FBBC04" d="M64 128l192 144V128z"/>
+        <path fill="#34A853" d="M448 128l-192 144V128z"/>
+        <path fill="#4285F4" d="M448 384H64V128z"/>
+      </svg>
+      <div>yourname@gmail.com</div>
     </a>
-    <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="contact-item orcid">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/orcid.svg" alt="ORCID">
-      <span>ORCID</span>
+
+    <!-- ORCID -->
+    <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="contact-item" style="text-decoration:none; color:white; text-align:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="60" height="60" style="transition: filter 0.3s ease;">
+        <circle fill="#A6CE39" cx="128" cy="128" r="128"/>
+        <path fill="#FFF" d="M86.4 90.1h15.2v76.3H86.4zM121.6 90.1h15.2v76.3h-15.2zM166.2 90.1h15.2v76.3h-15.2z"/>
+      </svg>
+      <div>ORCID</div>
     </a>
-    <a href="https://www.researchgate.net/profile/Your-Name" target="_blank" class="contact-item researchgate">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/researchgate.svg" alt="ResearchGate">
-      <span>ResearchGate</span>
+
+    <!-- ResearchGate -->
+    <a href="https://www.researchgate.net/profile/YourName" target="_blank" class="contact-item" style="text-decoration:none; color:white; text-align:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="60" height="60" style="transition: filter 0.3s ease;">
+        <path fill="#00CCBB" d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256,256-114.6,256-256S397.4,0,256,0Z"/>
+        <path fill="#FFF" d="M140 160h80c44 0 80 36 80 80s-36 80-80 80h-40v32h-40V160zm40 40v80h40c22 0 40-18 40-40s-18-40-40-40h-40z"/>
+      </svg>
+      <div>ResearchGate</div>
     </a>
-    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="contact-item linkedin">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-      <span>LinkedIn</span>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/yourname" target="_blank" class="contact-item" style="text-decoration:none; color:white; text-align:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="60" height="60" style="transition: filter 0.3s ease;">
+        <path fill="#0A66C2" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1a53.79 53.79 0 1153.79-53.79 53.79 53.79 0 01-53.79 53.79zM447.9 448h-92.4V302.4c0-34.7-.7-79.4-48.3-79.4-48.4 0-55.8 37.8-55.8 76.9V448h-92.6V148.9h88.9v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/>
+      </svg>
+      <div>LinkedIn</div>
     </a>
+
   </div>
+
+  <style>
+    .contact-item svg:hover {
+      filter: drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px currentColor);
+    }
+  </style>
 </section>
-
-<style>
-/* Banner background for Contact */
-.contact-banner {
-  background: linear-gradient(135deg, #0b0f3b, #2a0845);
-  padding: 100px 20px;
-  color: white;
-}
-
-.contact-container {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin-top: 40px;
-}
-
-.contact-item {
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  transition: transform 0.3s ease;
-}
-
-.contact-item img {
-  width: 50px;
-  height: 50px;
-  background: transparent; /* Remove white background */
-  border-radius: 50%; /* Helps smooth glow edges */
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.contact-item span {
-  display: block;
-  margin-top: 8px;
-}
-
-.contact-item:hover {
-  transform: translateY(-5px);
-}
-
-/* Marvel-style glow colors */
-.gmail:hover img {
-  filter: drop-shadow(0 0 8px rgba(255, 75, 75, 0.9)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
-}
-
-.orcid:hover img {
-  filter: drop-shadow(0 0 8px rgba(140, 213, 61, 0.9)) drop-shadow(0 0 15px rgba(0, 255, 106, 0.8));
-}
-
-.researchgate:hover img {
-  filter: drop-shadow(0 0 8px rgba(0, 204, 187, 0.9)) drop-shadow(0 0 15px rgba(0, 255, 246, 0.8));
-}
-
-.linkedin:hover img {
-  filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.9)) drop-shadow(0 0 15px rgba(0, 200, 255, 0.8));
-}
-</style>
 
   <script>
   function wrapThenGo(event, url, options = {}) {

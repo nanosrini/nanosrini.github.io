@@ -222,7 +222,8 @@
 .contact-item img {
   width: 50px;
   height: 50px;
-  filter: drop-shadow(0 0 0 transparent);
+  background: transparent; /* Remove white background */
+  border-radius: 50%; /* Helps smooth glow edges */
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
@@ -237,19 +238,19 @@
 
 /* Marvel-style glow colors */
 .gmail:hover img {
-  filter: drop-shadow(0 0 6px #ff4b4b) drop-shadow(0 0 12px #ff0000);
+  filter: drop-shadow(0 0 8px rgba(255, 75, 75, 0.9)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
 }
 
 .orcid:hover img {
-  filter: drop-shadow(0 0 6px #8cd53d) drop-shadow(0 0 12px #00ff6a);
+  filter: drop-shadow(0 0 8px rgba(140, 213, 61, 0.9)) drop-shadow(0 0 15px rgba(0, 255, 106, 0.8));
 }
 
 .researchgate:hover img {
-  filter: drop-shadow(0 0 6px #00ccbb) drop-shadow(0 0 12px #00fff6);
+  filter: drop-shadow(0 0 8px rgba(0, 204, 187, 0.9)) drop-shadow(0 0 15px rgba(0, 255, 246, 0.8));
 }
 
 .linkedin:hover img {
-  filter: drop-shadow(0 0 6px #0077b5) drop-shadow(0 0 12px #00c8ff);
+  filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.9)) drop-shadow(0 0 15px rgba(0, 200, 255, 0.8));
 }
 </style>
 

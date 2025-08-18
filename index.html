@@ -102,21 +102,26 @@
     <button class="enter-btn" onclick="openPortal()">Open Portal</button>
   </div>
 
-  <script>
-    function openPortal() {
-  const portal = document.getElementById("portal");
-  const portalImg = document.getElementById("portalImg");
-  const mainContent = document.getElementById("mainContent");
+<script>
+  function openPortal() {
+    const portal = document.getElementById("portal");
+    const portalImg = document.getElementById("portalImg");
+    const mainContent = document.getElementById("mainContent");
 
-  portal.style.display = "block";
-  portalImg.style.opacity = "1"; // Show only when ready
-  portalImg.style.animation = "portalExpand 2.5s ease-in-out forwards";
-  mainContent.classList.add("fade-out");
+    portal.style.display = "block";
+    portalImg.style.opacity = "1"; // show immediately
+    mainContent.classList.add("fade-out");
 
-  setTimeout(() => {
-    window.location.href = "/home/";
-  }, 3000);
-}
-  </script>
+    // Wait before expansion begins
+    setTimeout(() => {
+      portalImg.style.animation = "portalExpand 3.5s ease-in-out forwards";
+    }, 1500); // wait 1.5s before expanding
+
+    // Redirect after delay (GIF play + expansion)
+    setTimeout(() => {
+      window.location.href = "/home/";
+    }, 5200); // 1500ms wait + 3500ms expand + buffer
+  }
+</script>
 </body>
 </html>

@@ -114,13 +114,13 @@
 
     // Wait before expansion begins
     setTimeout(() => {
-      portalImg.style.animation = "portalExpand 3.5s ease-in-out forwards";
+      portalImg.style.animation = "portalExpand 2s ease-in-out forwards";
     }, 1500); // wait 1.5s before expanding
 
-    // Redirect after delay (GIF play + expansion)
+    // Redirect after delay (wait + expansion)
     setTimeout(() => {
       window.location.href = "/home/";
-    }, 5200); // 1500ms wait + 3500ms expand + buffer
+    }, 3700); // 1500ms wait + 2000ms expand + buffer
   }
 </script>
 </body>

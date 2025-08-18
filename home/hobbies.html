@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hobbies - Srini's Nanoverse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #8B0000; /* Marvel red */
+      color: #fff;
+    }
 
+    section {
+      padding: 100px 20px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 50px;
+      color: #f5c518; /* Avengers gold */
+    }
+
+    /* === HOBBIES SECTION === */
+    .hobby-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .hobby-card {
+      width: 300px;
+      padding: 20px;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s, background 0.3s;
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+      /* creates a parallelogram-style tilt */
+    }
+
+    .hobby-card img {
+      width: 60px;
+      margin-bottom: 12px;
+    }
+
+    .hobby-card:hover {
+      background: #222;
+      transform: translateX(10px);
+    }
+
+    /* === BACK BUTTON === */
+    .back-button {
+      display: block;
+      margin: 40px auto;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      background: #f5c518;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .back-button:hover {
+      background: #fff176;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hobbies Section -->
+  <section id="hobbies">
+    <h1>Hobbies</h1>
+    <div class="hobby-grid">
+      <a href="https://www.youtube.com/@VegVoyage" target="_blank" class="hobby-card">
+        <img src="assets/icons/youtube.png" alt="Veg Voyage">
+        <p>Veg Voyage (Tech Channel)</p>
+      </a>
+      <a href="https://www.youtube.com/@FoodChannel" target="_blank" class="hobby-card">
+        <img src="assets/icons/youtube.png" alt="Food Channel">
+        <p>Food Channel</p>
+      </a>
+      <a href="https://www.instagram.com/science_tshirts" target="_blank" class="hobby-card">
+        <img src="assets/icons/tshirt.png" alt="T-Shirt Shop">
+        <p>Science T-Shirt Shop</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Back Button -->
+  <a href="index.html" class="back-button">⬅ Back</a>
+
+</body>
+</html>

@@ -59,24 +59,27 @@
     }
 
     /* === BACK BUTTON === */
-    .back-button {
-      display: block;
-      margin: 40px auto;
-      padding: 8px 18px;
-      font-size: 14px;
-      font-weight: bold;
-      color: #000;
-      background: #f5c518;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
+    .back-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
 
-    .back-button:hover {
-      background: #fff176;
-      transform: scale(1.05);
-    }
+.back-btn {
+  background-color: #aa0505; /* Marvel red */
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #f5c518; /* Marvel yellow */
+  color: black;
+  transform: scale(1.05);
+}
   </style>
 </head>
 <body>
@@ -101,7 +104,9 @@
   </section>
 
   <!-- Back Button -->
-  <a href="index.html" class="back-button">Travel Back</a>
+<div class="back-btn-container">
+  <a href="#top" class="back-btn">Travel Back</a>
+</div>
 
 </body>
 </html>

@@ -147,49 +147,51 @@ section {
 
     /* Contact Section */
    .contact-section {
-  background: #924F9E; 
-  padding: 80px 20px;
   text-align: center;
-  color: white;
+  padding: 60px 20px;
+  background-color: #924F9E; /* Purple background */
 }
 
 .contact-icons {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap; 
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-top: 40px;
 }
 
 .contact-link {
+  text-decoration: none;
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
-  color: white;
   transition: transform 0.3s ease;
 }
 
 .contact-link:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .contact-icon {
-  width: 60px;  
-  height: 60px;  
-  object-fit: contain;
-  margin-bottom: 10px;
-  filter: drop-shadow(0 0 10px transparent); /* no glow by default */
-  transition: filter 0.3s ease;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%; /* circular shape */
+  background: white; /* background circle behind icon */
+  padding: 15px; /* keeps icons centered inside */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .contact-link:hover .contact-icon {
-  filter: drop-shadow(0 0 10px #38761d); 
+  box-shadow: 0 0 25px #f5c518, 0 0 40px #f5c518;
+  transform: scale(1.1);
 }
 
 .contact-link p {
-  margin: 0;
-  font-size: 14px;
+  margin: 10px 0 0;
+  font-size: 16px;
+  font-weight: 600;
 }
   </style>
 </head>

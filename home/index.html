@@ -149,15 +149,15 @@ section {
    .contact-section {
   text-align: center;
   padding: 60px 20px;
-  background-color: #924F9E; /* Purple background */
+  background-color: #7d4b94; /* Purple background */
 }
 
 .contact-icons {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 60px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .contact-link {
@@ -176,20 +176,25 @@ section {
 .contact-icon {
   width: 90px;
   height: 90px;
-  border-radius: 50%; /* circular shape */
-  background: white; /* background circle behind icon */
-  padding: 15px; /* keeps icons centered inside */
+  border-radius: 50%;       /* circular */
+  background: white;        /* uniform white background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;            /* space for logos inside */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+
 .contact-link:hover .contact-icon {
-  box-shadow: 0 0 25px #f5c518, 0 0 40px #f5c518;
+  box-shadow: 0 0 25px #f5c518, 0 0 40px #f5c518; /* yellow glow */
   transform: scale(1.1);
 }
 
-.contact-link:hover .contact-icon {
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 12px #00ffcc);
+.contact-link p {
+  margin: 10px 0 0;
+  font-size: 16px;
+  font-weight: 600;
 }
 	      
   </style>

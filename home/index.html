@@ -29,7 +29,7 @@
 }
 
 .navbar a {
-  color: #aa0505;
+  color: #4f2c8d;
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s;
@@ -147,55 +147,34 @@ section {
 
     /* Contact Section */
    .contact-section {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #7d4b94; /* Purple background */
-}
-
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-
-.contact-link {
-  text-decoration: none;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s ease;
-}
-
-.contact-link:hover {
-  transform: scale(1.15);
-}
-
-.contact-icon {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;       /* circular */
-  background: white;        /* uniform white background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;            /* space for logos inside */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.contact-link:hover .contact-icon {
-  box-shadow: 0 0 25px #f5c518, 0 0 40px #f5c518; /* yellow glow */
-  transform: scale(1.1);
-}
-
-.contact-link p {
-  margin: 10px 0 0;
-  font-size: 16px;
-  font-weight: 600;
-}
+      background-color: #331940;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .contact-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+    }
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .contact-link:hover .contact-icon {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 12px #00ffcc);
+    }
 	      
   </style>
 </head>
@@ -246,13 +225,7 @@ section {
         <h1>Contact</h1>
         <div class="contact-icons">
           <a href="mailto:yourmail@gmail.com" target="_blank" class="contact-link">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="52 42 88 66">
-            <path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6"/>
-            <path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15"/>
-            <path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2"/>
-            <path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92"/>
-            <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2"/>
-            </svg>
+            <img src="assests/icons/gmail.svg" alt="Gmail" class="contact-icon" />
             <p>Gmail</p>
           </a>
           <a href="https://orcid.org/your-orcid" target="_blank" class="contact-link">
@@ -260,43 +233,11 @@ section {
             <p>ORCID</p>
           </a>
           <a href="https://www.researchgate.net/profile/your-profile" target="_blank" class="contact-link">
-            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="32px" height="32px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                        viewBox="0 0 32 32"
-             xmlns:xlink="http://www.w3.org/1999/xlink"
-             xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
-            <defs>
-           <style type="text/css">
-           <![CDATA[
-             .fil0 {fill:#04D4AC;fill-rule:nonzero}
-             .fil1 {fill:white;fill-rule:nonzero}
-           ]]>
-           </style>
-           </defs>
-           <g id="Capa_x0020_1">
-           <metadata id="CorelCorpID_0Corel-Layer"/>
-           <path class="fil0" d="M32.04 15.97c0,8.85 -7.18,16.03 -16.02,16.03 -8.85,0 -16.02,-7.18 -16.02,-16.03 0,-8.85 7.17,-16.03 16.02,-16.03 8.84,0 16.02,7.18 16.02,16.03zm-14.79 7c-1.43,-0.28 -2.28,-1.11 -4.45,-4.33 -0.72,-1.08 -0.72,-1.08 -1.42,-1.13 -1.03,-0.07 -0.95,-0.25 -0.92,2.02 0.04,2.58 0.01,2.52 1.5,2.77 0.39,0.06 0.42,0.09 0.42,0.32 0,0.26 0,0.26 -2.62,0.28 -2.46,0.02 -2.62,0.01 -2.67,-0.14 -0.1,-0.29 0.05,-0.43 0.59,-0.53 0.61,-0.11 0.93,-0.36 1.01,-0.78 0.04,-0.16 0.05,-2.32 0.03,-4.8 -0.03,-5.21 0.03,-4.9 -0.93,-5.11 -0.6,-0.13 -0.79,-0.27 -0.71,-0.51 0.06,-0.16 0.19,-0.17 2.92,-0.22 4.06,-0.08 4.82,0.05 5.9,1.01 1.13,1.01 1.29,2.55 0.39,3.84 -0.4,0.58 -1.2,1.2 -1.82,1.43 -0.29,0.11 -0.53,0.23 -0.53,0.27 0,0.12 0.92,1.43 1.49,2.13 1.52,1.85 2.34,2.57 3.19,2.79 0.53,0.14 0.68,0.29 0.53,0.55 -0.16,0.27 -0.96,0.33 -1.9,0.14zm-3.83 -6.63c2,-0.82 2.15,-3.57 0.25,-4.38 -0.49,-0.21 -0.62,-0.22 -1.85,-0.22 -1.33,0 -1.33,0 -1.35,2.31 -0.02,1.27 -0.01,2.37 0.02,2.43 0.09,0.21 2.34,0.1 2.93,-0.14zm6.97 -2.85c-1.55,-0.29 -2.06,-1.24 -1.98,-3.68 0.04,-1.35 0.15,-1.72 0.67,-2.28 0.92,-0.99 3.2,-0.9 4.04,0.16 0.36,0.45 0.33,0.59 -0.17,0.74 -0.39,0.13 -0.39,0.13 -0.75,-0.23 -0.85,-0.82 -2.32,-0.52 -2.58,0.54 -0.13,0.47 -0.12,2.46 0.01,2.91 0.35,1.27 2.46,1.27 2.82,0 0.22,-0.81 0.17,-0.87 -0.8,-0.92 -0.47,-0.02 -0.47,-0.02 -0.47,-0.41 0,-0.38 0,-0.38 1.12,-0.41 1.45,-0.03 1.43,-0.05 1.36,1.01 -0.09,1.33 -0.45,1.97 -1.32,2.35 -0.57,0.24 -1.35,0.33 -1.95,0.22z"/>
-           <path class="fil1" d="M17.25 22.97c-1.43,-0.28 -2.28,-1.11 -4.45,-4.33 -0.72,-1.08 -0.72,-1.08 -1.42,-1.13 -1.03,-0.07 -0.95,-0.25 -0.92,2.02 0.04,2.58 0.01,2.52 1.5,2.77 0.39,0.06 0.42,0.09 0.42,0.32 0,0.26 0,0.26 -2.62,0.28 -2.46,0.02 -2.62,0.01 -2.67,-0.14 -0.1,-0.29 0.05,-0.43 0.59,-0.53 0.61,-0.11 0.93,-0.36 1.01,-0.78 0.04,-0.16 0.05,-2.32 0.03,-4.8 -0.03,-5.21 0.03,-4.9 -0.93,-5.11 -0.6,-0.13 -0.79,-0.27 -0.71,-0.51 0.06,-0.16 0.19,-0.17 2.92,-0.22 4.06,-0.08 4.82,0.05 5.9,1.01 1.13,1.01 1.29,2.55 0.39,3.84 -0.4,0.58 -1.2,1.2 -1.82,1.43 -0.29,0.11 -0.53,0.23 -0.53,0.27 0,0.12 0.92,1.43 1.49,2.13 1.52,1.85 2.34,2.57 3.19,2.79 0.53,0.14 0.68,0.29 0.53,0.55 -0.16,0.27 -0.96,0.33 -1.9,0.14zm-3.83 -6.63c2,-0.82 2.15,-3.57 0.25,-4.38 -0.49,-0.21 -0.62,-0.22 -1.85,-0.22 -1.33,0 -1.33,0 -1.35,2.31 -0.02,1.27 -0.01,2.37 0.02,2.43 0.09,0.21 2.34,0.1 2.93,-0.14zm6.97 -2.85c-1.55,-0.29 -2.06,-1.24 -1.98,-3.68 0.04,-1.35 0.15,-1.72 0.67,-2.28 0.92,-0.99 3.2,-0.9 4.04,0.16 0.36,0.45 0.33,0.59 -0.17,0.74 -0.39,0.13 -0.39,0.13 -0.75,-0.23 -0.85,-0.82 -2.32,-0.52 -2.58,0.54 -0.13,0.47 -0.12,2.46 0.01,2.91 0.35,1.27 2.46,1.27 2.82,0 0.22,-0.81 0.17,-0.87 -0.8,-0.92 -0.47,-0.02 -0.47,-0.02 -0.47,-0.41 0,-0.38 0,-0.38 1.12,-0.41 1.45,-0.03 1.43,-0.05 1.36,1.01 -0.09,1.33 -0.45,1.97 -1.32,2.35 -0.57,0.24 -1.35,0.33 -1.95,0.22zm0 0z"/>
-       </g>
-       </svg>
+            <img src="assests/icons/researchgate.svg" alt="ResearchGate" class="contact-icon" />
             <p>ResearchGate</p>
           </a>
           <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="contact-link">
-			  <?xml version="1.0" ?><svg height="72" viewBox="0 0 72 72" width="72" xmlns="http://www.w3.org/2000/svg">
-				  <g fill="none" fill-rule="evenodd">
-				<path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,
-					-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,
-					8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"/>
-					  <path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,
-						  38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,
-						  36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,
-						  62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,
-						  32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,
-						  26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,
-						  22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,
-						  10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,
-						  19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,
-						  62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFF"/></g>
-			  </svg>
+            <img src="assests/icons/linkedin.svg" alt="LinkedIn" class="contact-icon" />
             <p>LinkedIn</p>
           </a>
         </div>

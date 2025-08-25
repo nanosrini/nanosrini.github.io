@@ -12,7 +12,7 @@
       color: #fff;
     }
 
-    /* Journal logo background */
+    /* Background journal logos */
     .journal-background {
       position: fixed;
       inset: 0;
@@ -22,33 +22,63 @@
     .journal-logo {
       position: absolute;
       max-width: 180px;
-      opacity: 0.15; /* keep only one opacity */
+      opacity: 0.1;
       filter: grayscale(100%);
     }
 
     section {
-      padding: 120px 20px;
+      padding: 100px 20px;
       min-height: 100vh;
       text-align: center;
     }
 
     h1 {
       font-size: 40px;
-      margin-bottom: 30px;
-      color: #f5c518;
+      margin-bottom: 40px;
+      color: #f5c518; /* Marvel gold */
     }
 
-    p {
-      max-width: 800px;
-      margin: 0 auto;
+    /* Publication Card */
+    .pub-card {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 25px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      text-align: left;
       font-size: 18px;
       line-height: 1.6;
+    }
+
+    .pub-card a {
+      color: #1e90ff; /* Blue for DOI */
+      text-decoration: none;
+    }
+
+    .pub-card a:hover {
+      text-decoration: underline;
+    }
+
+    .authors {
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .journal {
+      margin-bottom: 10px;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating journal logos in the background -->
+  <!-- Floating journal logos in background -->
   <div class="journal-background">
     <img src="assets/icons/plos.png" class="journal-logo" style="top:10%; left:15%;">
     <img src="assets/icons/scirep.png" class="journal-logo" style="top:45%; right:20%;">
@@ -57,9 +87,22 @@
   <!-- Foreground content -->
   <section>
     <h1>Publications</h1>
-    <p>
-      Let's See my publications<br><br>
-    </p>
+
+    <!-- Example publication -->
+    <div class="pub-card">
+      Sundara Rajan R, S., Thomas, J., Francis, D. and Daniel, E.C., 2023. 
+      Effective gene delivery using size dependant nano core-shell in human cervical cancer cell lines by magnetofection. 
+      Plos one, 18(9), p.e0289731.
+      <a href="https://doi.org/10.1371/journal.pone.0289731" target="_blank">https://doi.org/xxxx</a>
+    </div>
+
+    <div class="pub-card">
+      <div class="authors"><b>Srinivasan N.</b>, Lee P., Kumar R.</div>
+      <div class="title">Aptamer-based lateral flow assay for ESKAPE pathogens</div>
+      <div class="journal">Scientific Reports, 2023</div>
+      <a href="https://doi.org/yyyy" target="_blank">https://doi.org/yyyy</a>
+    </div>
+
   </section>
 
 </body>

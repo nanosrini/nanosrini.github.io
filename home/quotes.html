@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quotes - Srini's Nanoverse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+      padding: 40px 20px;
+    }
 
+    h1 {
+      text-align: center;
+      color: #f5c518; /* Marvel gold */
+      margin-bottom: 40px;
+    }
+
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .quote-card {
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 120px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .quote-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Marvel-inspired colors */
+    .color1 { background: #aa0505; }  /* Iron Man red */
+    .color2 { background: #f5c518; color: #000; } /* Avengers gold */
+    .color3 { background: #0057b7; }  /* Captain America blue */
+    .color4 { background: #6a0dad; }  /* Loki purple */
+    .color5 { background: #228b22; }  /* Hulk green */
+  </style>
+</head>
+<body>
+  <h1>Quotes</h1>
+
+  <div class="quotes-grid">
+    <div class="quote-card color1">“The important thing is not to stop questioning.” – Einstein</div>
+    <div class="quote-card color2">“Imagination is more important than knowledge.” – Einstein</div>
+    <div class="quote-card color3">“Somewhere, something incredible is waiting to be known.” – Carl Sagan</div>
+    <div class="quote-card color4">“The power of imagination makes us infinite.” – John Muir</div>
+    <div class="quote-card color5">“Science is organized knowledge.” – Herbert Spencer</div>
+  </div>
+
+</body>
+</html>

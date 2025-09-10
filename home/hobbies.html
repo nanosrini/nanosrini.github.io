@@ -25,38 +25,37 @@
     }
 
     /* === HOBBIES SECTION === */
-    .hobby-grid {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-    }
+   .hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
 
     .hobby-card {
-      width: 300px;
-      padding: 20px;
-      background: #111;
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.3s, background 0.3s;
-      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-      /* parallelogram-style tilt */
-    }
+  width: 250px;
+  padding: 20px;
+  background: #111;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, background 0.3s;
+  border-radius: 10px; /* clean look */
+}
 
-    .hobby-card img {
-      width: 60px;
-      margin-bottom: 12px;
-    }
+.hobby-card img {
+  width: 60px;
+  margin-bottom: 12px;
+}
 
-    .hobby-card:hover {
-      background: #222;
-      transform: translateX(10px);
-    }
+.hobby-card:hover {
+  background: #222;
+  transform: translateY(-5px);
+}
 
     /* === BACK BUTTON === */
     .back-btn-container {

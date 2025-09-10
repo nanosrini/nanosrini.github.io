@@ -26,15 +26,14 @@
 
     /* === HOBBIES SECTION === */
     .hobby-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 30px;
-      justify-items: center;
     }
 
     .hobby-card {
-      width: 200px;
-      height: 230px;
+      width: 300px;
       padding: 20px;
       background: #111;
       color: white;
@@ -43,24 +42,20 @@
       font-weight: bold;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s, background 0.3s;
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+      /* parallelogram-style tilt */
     }
 
     .hobby-card img {
-      width: 200px;
-      height: 200px;
-      object-fit: contain;
-      margin-bottom: 15px;
+      width: 60px;
+      margin-bottom: 12px;
     }
 
     .hobby-card:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px #f5c518; /* gold glow */
       background: #222;
+      transform: translateX(10px);
     }
 
     /* === BACK BUTTON === */
@@ -74,9 +69,9 @@
       background-color: #aa0505; /* Marvel red */
       color: white;
       text-decoration: none;
-      padding: 12px 25px;
-      font-size: 18px;
-      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
       transition: background 0.3s ease, transform 0.2s ease;
     }
 
@@ -94,16 +89,24 @@
     <h1>Hobbies</h1>
     <div class="hobby-grid">
       <a href="https://www.youtube.com/@nano_et" target="_blank" class="hobby-card">
-        <img src="assets/icons/youtube.png" alt="Tech Channel">
+        <img src="assets/icons/youtube.png" alt="Veg Voyage">
         <p>ET (Tech Channel)</p>
       </a>
       <a href="https://www.youtube.com/@Exploretrek247" target="_blank" class="hobby-card">
-        <img src="assets/icons/youtube.png" alt="Trekking">
+        <img src="assets/icons/youtube.png" alt="Food Channel">
         <p>Trekking</p>
       </a>
       <a href="https://www.instagram.com/nanodesizn" target="_blank" class="hobby-card">
-        <img src="assests/icons/nanodesizn.jpg" alt="T-Shirt Shop">
+        <img src="assets/icons/tshirt.png" alt="T-Shirt Shop">
         <p>Science T-Shirt Shop</p>
+      </a>
+      <a href="quotes.html" class="hobby-card">
+        <img src="assets/icons/quotes.png" alt="Quotes">
+        <p>Quotes</p>
+      </a>
+      <a href="photos.html" class="hobby-card">
+        <img src="assets/icons/photos.png" alt="Photos">
+        <p>Lab Photos</p>
       </a>
     </div>
   </section>

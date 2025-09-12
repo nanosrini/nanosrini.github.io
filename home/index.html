@@ -5,7 +5,6 @@
   <title>Srini's Nanoverse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Anton&display=swap" rel="stylesheet">
   <meta name="description" content="Srini's Nanoverse - Research, Publications, and Projects in DNA nanotechnology, microbiome, and biotechnology.">
   <meta name="keywords" content="Srini, Nanoverse, Research, Nanotechnology, microbiology, biotechnology, publications">
   <meta name="author" content="Srini">
@@ -17,7 +16,14 @@
       background: #000;
       color: #fff;
     }
-
+	  
+  @font-face {
+  font-family: 'MarvelFont';
+  src: url('assets/fonts/Marvel.woff2') format('woff2'),
+  font-weight: normal;
+  font-style: normal;
+}
+	  
     /* Navbar */
     .navbar {
   position: fixed;
@@ -31,23 +37,18 @@
   padding: 15px 0;
   z-index: 1000; /* stays above everything */
 }
-  @font-face {
-  font-family: 'MarvelFont';
-  src: url('assets/fonts/Marvel.ttf') format('truetype');
-  /* you can also use WOFF for better browser support */
-}
 
 .navbar a {
+  font-family: 'MarvelFont', sans-serif; /* custom font */
   color: #F0131E;
   text-decoration: none;
   font-size: 24px;
+  letter-spacing: 2px;
   transition: color 0.3s;
-  font-family: 'MarvelFont', cursive; /* Marvel-style font only for navbar */
-  letter-spacing: 2px; /* adds comic book spacing */
 }
 
 .navbar a:hover {
-  color: #f5c518; /* Marvel yellow */
+  color: #f5c518;
 }
 
 section {

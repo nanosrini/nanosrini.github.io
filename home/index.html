@@ -31,13 +31,18 @@
   padding: 15px 0;
   z-index: 1000; /* stays above everything */
 }
+  @font-face {
+  font-family: 'MarvelFont';
+  src: url('assets/fonts/Marvel.ttf') format('truetype');
+  /* you can also use WOFF for better browser support */
+}
 
 .navbar a {
   color: #F0131E;
   text-decoration: none;
   font-size: 24px;
   transition: color 0.3s;
-  font-family: 'Bangers', cursive; /* Marvel-style font only for navbar */
+  font-family: 'MarvelFont', cursive; /* Marvel-style font only for navbar */
   letter-spacing: 2px; /* adds comic book spacing */
 }
 

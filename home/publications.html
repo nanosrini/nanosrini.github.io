@@ -17,13 +17,36 @@
       position: fixed;
       inset: 0;
       z-index: -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: space-between;
+      pointer-events: none; /* so clicks go through */
     }
 
     .journal-logo {
       position: absolute;
-      max-width: 180px;
-      opacity: 0.1;
+      width: 40%; /* make logos large */
+      height: auto;
+      opacity: 0.07; /* subtle watermark effect */
       filter: grayscale(100%);
+    }
+
+    /* Place each logo in one corner */
+    .top-left {
+      top: 0;
+      left: 0;
+    }
+    .top-right {
+      top: 0;
+      right: 0;
+    }
+    .bottom-left {
+      bottom: 0;
+      left: 0;
+    }
+    .bottom-right {
+      bottom: 0;
+      right: 0;
     }
 
     section {
@@ -58,29 +81,16 @@
     .pub-card a:hover {
       text-decoration: underline;
     }
-
-    .authors {
-      font-style: italic;
-      margin-bottom: 5px;
-    }
-
-    .title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .journal {
-      margin-bottom: 10px;
-      color: #ccc;
-    }
   </style>
 </head>
 <body>
 
-  <!--  journal logos in background -->
+  <!-- Large fixed journal logos in background -->
   <div class="journal-background">
-    <img src="assests/icons/plos.JPG" class="journal-logo" style="top:10%; left:15%;">
-    <img src="assests/icons/scirep.png" class="journal-logo" style="top:45%; right:20%;">
+    <img src="assets/icons/plos.png" class="journal-logo top-left" alt="PLOS">
+    <img src="assets/icons/scirep.png" class="journal-logo top-right" alt="SciRep">
+    <img src="assets/icons/nature.png" class="journal-logo bottom-left" alt="Nature">
+    <img src="assets/icons/elsevier.png" class="journal-logo bottom-right" alt="Elsevier">
   </div>
 
   <section>
@@ -89,34 +99,34 @@
     <div class="pub-card">
       Sundara Rajan R, S., Thomas, J., Francis, D. and Daniel, E.C., 2023. 
       Effective gene delivery using size dependant nano core-shell in human cervical cancer cell lines by magnetofection. 
-      Plos one, 18(9), p.e0289731.
+      Plos one, 18(9), p.e0289731. 
       <a href="https://doi.org/10.1371/journal.pone.0289731" target="_blank">https://doi.org/10.1371/journal.pone.0289731</a>
     </div>
 
     <div class="pub-card">
       Sundara Rajan R. Copper surface acts as good surface for biofilm attachment.
-      Asia pacific journal of molecular biology and biotechnology
-      <a href="https://DOI: 10.35118/apjmbb.2024.032.2.04" target="_blank">https://DOI: 10.35118/apjmbb.2024.032.2.04</a>
+      Asia Pacific Journal of Molecular Biology and Biotechnology. 
+      <a href="https://doi.org/10.35118/apjmbb.2024.032.2.04" target="_blank">https://doi.org/10.35118/apjmbb.2024.032.2.04</a>
     </div>
 
     <div class="pub-card">
-      Srinivasa Sundara Rajan R Challaraj Emmanuel E.S., Rincy P. Benoy, Amjad Hassan Khan M K. 
-      A STUDY ON CORROSION INHIBITION BY LACTOBACILLUS LACTIS DERIVED SURFACTANT ON THIOBACILLUS SP
-     </div>
+      Srinivasa Sundara Rajan R, Challaraj Emmanuel E.S., Rincy P. Benoy, Amjad Hassan Khan M K. 
+      A study on corrosion inhibition by Lactobacillus lactis derived surfactant on Thiobacillus sp.
+    </div>
     
     <div class="pub-card">
-      Srinivasa Sundara Rajan R, Arumugasamy K.  Poonam Singh, Maruthamuthu S 
-      FOLDSCOPE: A NOVEL PAPER MICROSCOPE AND ITS APPLICATION, Journal of Emerging Technologies and Innovative Research
-     </div>
+      Srinivasa Sundara Rajan R, Arumugasamy K., Poonam Singh, Maruthamuthu S.  
+      Foldscope: A novel paper microscope and its application, Journal of Emerging Technologies and Innovative Research.
+    </div>
     
     <div class="pub-card">
-      Challaraj Emmanuel E.S and Srinivasa Sundara Rajan R Akhil Suresh, Karim Kinwary, Nithish Kumar M, Santosh Ba.
-      Synthesis of bio-surfactant coated copper nanoparticles
+      Challaraj Emmanuel E.S., Srinivasa Sundara Rajan R, Akhil Suresh, Karim Kinwary, Nithish Kumar M, Santosh Ba.  
+      Synthesis of bio-surfactant coated copper nanoparticles.
     </div>
 
     <div class="pub-card">
-      ELCEY C DANIEL SAMUEL REINHARD T , NIDHI PRAKASH , SRINIVASA SUNDARAJAN R , JOBIN THOMAS
-      SYNTHESIS OF FLUORESCENT IRON OXIDE NANOPARTICLES, International Journal of Life sciences and Pharma Research
+      Elcey C. Daniel, Samuel Reinhard T., Nidhi Prakash, Srinivasa Sundarajan R., Jobin Thomas.  
+      Synthesis of fluorescent iron oxide nanoparticles, International Journal of Life Sciences and Pharma Research.
     </div>
 
   </section>

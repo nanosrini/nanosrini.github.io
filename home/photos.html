@@ -19,11 +19,10 @@
       color: #f5c518; /* Marvel yellow */
     }
 
-    /* Photo grid */
+    /* Masonry-style columns */
     .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 per row */
-      gap: 15px;
+      column-count: 4;   /* number of columns */
+      column-gap: 15px;  /* spacing between columns */
       padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
@@ -31,9 +30,10 @@
 
     .photo-grid img {
       width: 100%;
-      height: auto;
+      margin-bottom: 15px;
       border: 3px solid #aa0505; /* Marvel red border */
       border-radius: 10px;
+      display: inline-block; /* important for columns */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -45,19 +45,19 @@
     /* Responsive design */
     @media (max-width: 1024px) {
       .photo-grid {
-        grid-template-columns: repeat(3, 1fr);
+        column-count: 3;
       }
     }
 
     @media (max-width: 768px) {
       .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
+        column-count: 2;
       }
     }
 
     @media (max-width: 480px) {
       .photo-grid {
-        grid-template-columns: 1fr;
+        column-count: 1;
       }
     }
   </style>
@@ -70,8 +70,10 @@
     <img src="assests/photos/photo2.jpg" alt="Photo 2">
     <img src="assests/photos/photo3.jpg" alt="Photo 3">
     <img src="assests/photos/photo4.jpg" alt="Photo 4">
-    <!-- Add more photos below as needed -->
+    <img src="assests/photos/photo5.jpg" alt="Photo 5">
+    <img src="assests/photos/photo6.jpg" alt="Photo 6">
+    <img src="assests/photos/photo7.jpg" alt="Photo 7">
+    <img src="assests/photos/photo8.jpg" alt="Photo 8">
   </div>
 </body>
 </html>
-
